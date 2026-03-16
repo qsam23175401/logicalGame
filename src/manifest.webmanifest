@@ -1,0 +1,18 @@
+{
+  "name": "邏輯神探",
+  "short_name": "邏輯神探",
+  "description": "一個有趣的邏輯推理遊戲，給五歲小朋友玩",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#4f46e5",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/assets/logicalGameIcon.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
