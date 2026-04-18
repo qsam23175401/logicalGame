@@ -8,3 +8,7 @@
     align-items: center;
     gap: var(--spacing-md);
 }
+
+.center {
+    margin: 0 auto;
+}

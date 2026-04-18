@@ -5,20 +5,133 @@
         <button class="animationButton" (click)="page.set('animation')">🎥</button>
     </div>
     @if(page() === 'setting'){
-        <div class="settingPageOfgame">
-            <p>設定頁面</p>
-            
-        </div>
+    <div class="settingPageOfgame">
+        <p>設定頁面</p>
+
+    </div>
     }@else if(page() === 'game'){
-        <div class="gamePageOfgame">
-            <p>遊戲頁面</p>
-            
-        </div>
-        
+    <div class="gamePageOfgame">
+        <p>遊戲頁面</p>
+        <table class="center">
+            <tr>
+                <th></th>
+                <th>十萬位</th>
+                <th>萬位</th>
+                <th>千位</th>
+                <th>百位</th>
+                <th>十位</th>
+                <th>個位</th>
+                <th class="decimalPoint">.</th>
+                <th class="decimalPoint-right">十分位</th>
+                <th>百分位</th>
+            </tr>
+            <tr class="practicingInput">
+                <!-- 雖然是文字但是跳出數字鍵盤 -->
+                <th style="font-size: 13px;">筆記</th>
+                <th><input class="memeryBox-1" type="text" inputmode="numeric" [(ngModel)]="memeryBox[1]"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="memeryBox-2" type="text" inputmode="numeric" [(ngModel)]="memeryBox[2]"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="memeryBox-3" type="text" inputmode="numeric" [(ngModel)]="memeryBox[3]"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="memeryBox-4" type="text" inputmode="numeric" [(ngModel)]="memeryBox[4]"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="memeryBox-5" type="text" inputmode="numeric" [(ngModel)]="memeryBox[5]"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="memeryBox-6" type="text" inputmode="numeric" [(ngModel)]="memeryBox[6]"
+                        (focus)="$any($event.target).select()"></th>
+                <th class="decimalPoint">.</th>
+                <th class="decimalPoint-right"><input class="memeryBox-7" type="text" inputmode="numeric"
+                        [(ngModel)]="memeryBox[7]" (focus)="$any($event.target).select()"></th>
+                <th></th>
+            </tr>
+            <tr class="numA">
+                <th></th>
+                <th>{{numA()|showDigit:'十萬位'}}</th>
+                <th>{{numA()|showDigit:'萬位'}}</th>
+                <th>{{numA()|showDigit:'千位'}}</th>
+                <th>{{numA()|showDigit:'百位'}}</th>
+                <th>{{numA()|showDigit:'十位'}}</th>
+                <th>{{numA()|showDigit:'個位'}}</th>
+                <th class="decimalPoint">.</th>
+                <th class="decimalPoint-right">{{numA()|showDigit:'十分位'}}</th>
+                <th>{{numA()|showDigit:'百分位'}}</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>{{numB()|showDigit:'十萬位'}}</th>
+                <th>{{numB()|showDigit:'萬位'}}</th>
+                <th>{{numB()|showDigit:'千位'}}</th>
+                <th>{{numB()|showDigit:'百位'}}</th>
+                <th>{{numB()|showDigit:'十位'}}</th>
+                <th>{{numB()|showDigit:'個位'}}</th>
+                <th class="decimalPoint">.</th>
+                <th class="decimalPoint-right">{{numB()|showDigit:'十分位'}}</th>
+                <th>{{numB()|showDigit:'百分位'}}</th>
+            </tr>
+            <tr>
+                <th>@if(mode() === 'add'){}@else{-}</th>
+                <th>{{numC()|showDigit:'十萬位'}}</th>
+                <th>{{numC()|showDigit:'萬位'}}</th>
+                <th>{{numC()|showDigit:'千位'}}</th>
+                <th>{{numC()|showDigit:'百位'}}</th>
+                <th>{{numC()|showDigit:'十位'}}</th>
+                <th>{{numC()|showDigit:'個位'}}</th>
+                <th class="decimalPoint">.</th>
+                <th class="decimalPoint-right">{{numC()|showDigit:'十分位'}}</th>
+                <th>{{numC()|showDigit:'百分位'}}</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>{{numD()|showDigit:'十萬位'}}</th>
+                <th>{{numD()|showDigit:'萬位'}}</th>
+                <th>{{numD()|showDigit:'千位'}}</th>
+                <th>{{numD()|showDigit:'百位'}}</th>
+                <th>{{numD()|showDigit:'十位'}}</th>
+                <th>{{numD()|showDigit:'個位'}}</th>
+                <th class="decimalPoint">.</th>
+                <th class="decimalPoint-right">{{numD()|showDigit:'十分位'}}</th>
+                <th>{{numD()|showDigit:'百分位'}}</th>
+            </tr>
+            <tr>
+                <th>@if(mode() === 'add'){+}@else{-}</th>
+                <th>{{numE()|showDigit:'十萬位'}}</th>
+                <th>{{numE()|showDigit:'萬位'}}</th>
+                <th>{{numE()|showDigit:'千位'}}</th>
+                <th>{{numE()|showDigit:'百位'}}</th>
+                <th>{{numE()|showDigit:'十位'}}</th>
+                <th>{{numE()|showDigit:'個位'}}</th>
+                <th class="decimalPoint">.</th>
+                <th class="decimalPoint-right">{{numE()|showDigit:'十分位'}}</th>
+                <th>{{numE()|showDigit:'百分位'}}</th>
+            </tr>
+            <tr class="answerArea">
+                <th></th>
+                <th><input class="answer-0" type="text" inputmode="numeric" [value]="inputAnswer()[0]" (change)="inputAnswers(0,$event)"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="answer-1" type="text" inputmode="numeric" [value]="inputAnswer()[1]" (change)="inputAnswers(1,$event)"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="answer-2" type="text" inputmode="numeric" [value]="inputAnswer()[2]" (change)="inputAnswers(2,$event)"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="answer-3" type="text" inputmode="numeric" [value]="inputAnswer()[3]" (change)="inputAnswers(3,$event)"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="answer-4" type="text" inputmode="numeric" [value]="inputAnswer()[4]" (change)="inputAnswers(4,$event)"
+                        (focus)="$any($event.target).select()"></th>
+                <th><input class="answer-5" type="text" inputmode="numeric" [value]="inputAnswer()[5]" (change)="inputAnswers(5,$event)"
+                        (focus)="$any($event.target).select()"></th>
+                <th class="decimalPoint">.</th>
+                <th class="decimalPoint-right"><input class="answer-6" type="text" inputmode="numeric"
+                        [value]="inputAnswer()[6]" (change)="inputAnswers(6,$event)" (focus)="$any($event.target).select()"></th>
+                <th><input class="answer-7" type="text" inputmode="numeric" [value]="inputAnswer()[7]" (change)="inputAnswers(7,$event)"
+                        (focus)="$any($event.target).select()"></th>
+            </tr>
+        </table>
+    </div>
+
     }@else if(page() === 'animation'){
-        <div class="animationPageOfgame">
-            <p>動畫頁面</p>
-            
-        </div>
+    <div class="animationPageOfgame">
+        <p>動畫頁面</p>
+
+    </div>
     }
 </div>
