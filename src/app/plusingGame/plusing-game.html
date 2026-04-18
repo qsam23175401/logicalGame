@@ -111,8 +111,10 @@
                                 }
                                 <th><input class="memeryBox-5" type="text" inputmode="numeric"
                                                 [(ngModel)]="memeryBox[5]" (focus)="$any($event.target).select()"></th>
+                                @if(plusingSettingService.decimalPoint() > 0){
                                 <th><input class="memeryBox-6" type="text" inputmode="numeric"
                                                 [(ngModel)]="memeryBox[6]" (focus)="$any($event.target).select()"></th>
+                                }
                                 @if(plusingSettingService.decimalPoint() > 1){
                                 <th class="decimalPoint">.</th>
                                 }
@@ -121,7 +123,7 @@
                                                 inputmode="numeric" [(ngModel)]="memeryBox[7]"
                                                 (focus)="$any($event.target).select()"></th>
                                 }
-                                <th></th>
+                                <th class="transparent"></th>
                         </tr>
                         <tr class="numA">
                                 <th></th>

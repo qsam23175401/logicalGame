@@ -101,9 +101,9 @@ export class PlusingSettingService {
       // 只 set 需要的數字，其餘設為 0 避免 undefined
       this.numA.set(nums[0] ?? 0);
       this.numB.set(nums[1] ?? 0);
-      this.numC.set(nums[nums.length - 2] ?? 0);
-      this.numD.set(nums[nums.length - 3] ?? 0);
-      this.numE.set(nums[nums.length - 1] ?? 0);
+      this.numC.set(nums[2] ?? 0);
+      this.numD.set(nums[3] ?? 0);
+      this.numE.set(nums[4] ?? 0);
     }
 
 
