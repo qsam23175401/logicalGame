@@ -1,0 +1,24 @@
+<div class="gamePage">
+    <div class="action-row-gap">
+        <button class="settingButton" (click)="page.set('setting')">⚙</button>
+        <button class="gameButton" (click)="page.set('game')">🎮</button>
+        <button class="animationButton" (click)="page.set('animation')">🎥</button>
+    </div>
+    @if(page() === 'setting'){
+        <div class="settingPageOfgame">
+            <p>設定頁面</p>
+            
+        </div>
+    }@else if(page() === 'game'){
+        <div class="gamePageOfgame">
+            <p>遊戲頁面</p>
+            
+        </div>
+        
+    }@else if(page() === 'animation'){
+        <div class="animationPageOfgame">
+            <p>動畫頁面</p>
+            
+        </div>
+    }
+</div>

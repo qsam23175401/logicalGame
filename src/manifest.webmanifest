@@ -1,7 +1,7 @@
 {
-  "name": "邏輯神探",
-  "short_name": "邏輯神探",
-  "description": "一個有趣的邏輯推理遊戲，給五歲小朋友玩",
+  "name": "加減法演示",
+  "short_name": "加減法演示",
+  "description": "一個設計給幼稚園小朋友的加減法演示",
   "start_url": "./",
   "display": "standalone",
   "orientation": "portrait",
