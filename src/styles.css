@@ -1,12 +1,9 @@
-:root {
-    --spacing-md: 10px;
-    background-color: #72b2e4;
-}
+
 
 .action-row-gap {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: 10px;
 }
 
 .center {

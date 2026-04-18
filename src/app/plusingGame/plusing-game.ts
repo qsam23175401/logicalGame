@@ -23,6 +23,9 @@ export class PlusingGame {
   numE = computed(() => this.plusingSettingService.numE());
   answer = computed(() => this.plusingSettingService.answer());
   mode = computed(() => this.plusingSettingService.mode());
+  howManyNumbers = computed(() => this.plusingSettingService.howManyNumbers());
+  digitalNow = computed(() => this.plusingSettingService.digitNow());
+  decimalPoint = computed(() => this.plusingSettingService.decimalPoint());
 
   memeryBox = [null, null, null, null, null, null, null, null]
   inputAnswer = signal<(number | null)[]>([null, null, null, null, null, null, null, null])
@@ -33,5 +36,7 @@ export class PlusingGame {
       return value;
     });
   }
+
+
 
 }
