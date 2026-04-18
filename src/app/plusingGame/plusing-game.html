@@ -11,50 +11,50 @@
                         <div class="action-row-gap">
                                 <p>加減模式</p>
                                 <button [class.selected]="plusingSettingService.mode() === 'add'" class="settingButton"
-                                        (click)="plusingSettingService.mode.set('add')">加法</button>
+                                        (click)="setMode('add')">加法</button>
                                 <button [class.selected]="plusingSettingService.mode() === 'sub'" class="settingButton"
-                                        (click)="plusingSettingService.mode.set('sub')">減法</button>
+                                        (click)="setMode('sub')">減法</button>
                         </div>
                         <div class="action-row-gap">
                                 <p>有幾個數字</p>
                                 <button [class.selected]="plusingSettingService.howManyNumbers() === 2"
                                         class="settingButton"
-                                        (click)="plusingSettingService.howManyNumbers.set(2)">2個數字</button>
+                                        (click)="setHowManyNumbers(2)">2個數字</button>
                                 <button [class.selected]="plusingSettingService.howManyNumbers() === 3"
                                         class="settingButton"
-                                        (click)="plusingSettingService.howManyNumbers.set(3)">3個數字</button>
+                                        (click)="setHowManyNumbers(3)">3個數字</button>
                                 <button [class.selected]="plusingSettingService.howManyNumbers() === 4"
                                         class="settingButton"
-                                        (click)="plusingSettingService.howManyNumbers.set(4)">4個數字</button>
+                                        (click)="setHowManyNumbers(4)">4個數字</button>
                                 <button [class.selected]="plusingSettingService.howManyNumbers() === 5"
                                         class="settingButton"
-                                        (click)="plusingSettingService.howManyNumbers.set(5)">5個數字</button>
+                                        (click)="setHowManyNumbers(5)">5個數字</button>
                         </div>
                         <!-- 個位數/十位數/百位數/千位數/萬位數 -->
                         <div class="action-row-gap">
                                 <p>最大位數</p>
                                 <button [class.selected]="plusingSettingService.digitNow() === 1" class="settingButton"
-                                        (click)="plusingSettingService.digitNow.set(1)">個位數</button>
+                                        (click)="setDigitNow(1)">個位數</button>
                                 <button [class.selected]="plusingSettingService.digitNow() === 2" class="settingButton"
-                                        (click)="plusingSettingService.digitNow.set(2)">十位數</button>
+                                        (click)="setDigitNow(2)">十位數</button>
                                 <button [class.selected]="plusingSettingService.digitNow() === 3" class="settingButton"
-                                        (click)="plusingSettingService.digitNow.set(3)">百位數</button>
+                                        (click)="setDigitNow(3)">百位數</button>
                                 <button [class.selected]="plusingSettingService.digitNow() === 4" class="settingButton"
-                                        (click)="plusingSettingService.digitNow.set(4)">千位數</button>
+                                        (click)="setDigitNow(4)">千位數</button>
                                 <button [class.selected]="plusingSettingService.digitNow() === 5" class="settingButton"
-                                        (click)="plusingSettingService.digitNow.set(5)">萬位數</button>
+                                        (click)="setDigitNow(5)">萬位數</button>
                         </div>
                         <div class="action-row-gap">
                                 <p>小數點</p>
                                 <button [class.selected]="plusingSettingService.decimalPoint() === 0"
                                         class="settingButton"
-                                        (click)="plusingSettingService.decimalPoint.set(0)">整數</button>
+                                        (click)="setDecimalPoint(0)">整數</button>
                                 <button [class.selected]="plusingSettingService.decimalPoint() === 1"
                                         class="settingButton"
-                                        (click)="plusingSettingService.decimalPoint.set(1)">十分位</button>
+                                        (click)="setDecimalPoint(1)">十分位</button>
                                 <button [class.selected]="plusingSettingService.decimalPoint() === 2"
                                         class="settingButton"
-                                        (click)="plusingSettingService.decimalPoint.set(2)">百分位</button>
+                                        (click)="setDecimalPoint(2)">百分位</button>
                         </div>
 
                 </div>

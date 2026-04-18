@@ -16,7 +16,13 @@ const digitMap = {
 })
 export class ShowDigitPipe implements PipeTransform {
     transform(value: number, digit: string): number {
+        // 統一先放大成整數再做除法，避免小數除法的浮點數誤差
+        // 例如: 12.3 / 0.1 → 122.999... → Math.floor → 122 → 顯示2 (錯誤)
+        // 修正: Math.round(12.3 * 100) / (0.1 * 100) = 1230 / 10 = 123 → 顯示3 (正確)
+        const SCALE = 100; // 支援最多到百分位
         const digitValue = digitMap[digit as keyof typeof digitMap];
-        return Math.floor(value / digitValue) % 10;
+        const scaledValue = Math.round(value * SCALE);
+        const scaledDigit = Math.round(digitValue * SCALE);
+        return Math.floor(scaledValue / scaledDigit) % 10;
     }
 }
