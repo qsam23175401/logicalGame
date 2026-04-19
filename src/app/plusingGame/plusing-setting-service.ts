@@ -32,6 +32,7 @@ export class PlusingSettingService {
     //出題
     this.setNewQuestion();
 
+    //輸入改變時，就計算看看答案是否正確->重新出題
     effect(() => {
       const dp = this.decimalPoint(); // 小數點位數，用來修正浮點數誤差
       if (this.mode() === 'add') {
@@ -42,7 +43,6 @@ export class PlusingSettingService {
         }
         // 修正浮點數精度誤差
         result = parseFloat(result.toFixed(dp));
-        console.log(nums, 'result', result);
         this.answer.set(result);
       } else {
         const nums = [this.numA(), this.numB(), this.numC(), this.numD(), this.numE()];
@@ -58,7 +58,6 @@ export class PlusingSettingService {
         }
         // 修正浮點數精度誤差
         result = parseFloat(result.toFixed(dp));
-        console.log(nums, 'result', result);
         this.answer.set(result);
       }
     });
@@ -96,7 +95,9 @@ export class PlusingSettingService {
         }
       }
       //排序nums
-      nums.sort((a, b) => b - a);
+      if(!this.allowNegative()){ 
+        nums.sort((a, b) => b - a);
+      }
       //最小的兩個放到C和E
       // 只 set 需要的數字，其餘設為 0 避免 undefined
       this.numA.set(nums[0] ?? 0);
@@ -104,9 +105,17 @@ export class PlusingSettingService {
       this.numC.set(nums[2] ?? 0);
       this.numD.set(nums[3] ?? 0);
       this.numE.set(nums[4] ?? 0);
+    }    
+  }
+
+  async checkAnswer(answer: number) {
+    if (answer === this.answer()) {
+      console.log('correct');
+      this.setNewQuestion();
+      return true;
+    } else {
+      return false;
     }
-
-
   }
 
 }

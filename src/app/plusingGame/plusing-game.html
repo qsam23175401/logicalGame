@@ -56,6 +56,15 @@
                                         class="settingButton"
                                         (click)="setDecimalPoint(2)">百分位</button>
                         </div>
+                        <div class="action-row-gap">
+                                <p>允許負數</p>
+                                <button [class.selected]="plusingSettingService.allowNegative() === true"
+                                        class="settingButton"
+                                        (click)="setAllowNegative(true)">是</button>
+                                <button [class.selected]="plusingSettingService.allowNegative() === false"
+                                        class="settingButton"
+                                        (click)="setAllowNegative(false)">否</button>
+                        </div>
 
                 </div>
 
@@ -266,7 +275,11 @@
                         </tr>
                         }
                         <tr class="answerArea">
-                                <th class="transparent"></th>
+                                @if(this.putNegative()){
+                                        <th class="transparent"(click)="toggleNegative()">-</th>
+                                }@else{
+                                        <th class="transparent"(click)="toggleNegative()"></th>
+                                }
                                 @if(plusingSettingService.digitNow()>=5){
                                 <th><input class="answer-0" type="text" inputmode="numeric" [value]="inputAnswer()[0]"
                                                 (change)="inputAnswers(0,$event)"
