@@ -1,4 +1,4 @@
-<div class="gamePage">
+<div class="gamePage container">
         <div class="action-row-gap">
                 <button class="settingButton" (click)="page.set('setting')">⚙</button>
                 <button class="gameButton" (click)="page.set('game')">🎮</button>
@@ -7,67 +7,54 @@
         @if(page() === 'setting'){
         <div class="settingPageOfgame">
                 <p>設定頁面</p>
-                <div>
-                        <div class="action-row-gap">
-                                <p>加減模式</p>
-                                <button [class.selected]="plusingSettingService.mode() === 'add'" class="settingButton"
-                                        (click)="setMode('add')">加法</button>
-                                <button [class.selected]="plusingSettingService.mode() === 'sub'" class="settingButton"
-                                        (click)="setMode('sub')">減法</button>
-                        </div>
-                        <div class="action-row-gap">
-                                <p>有幾個數字</p>
-                                <button [class.selected]="plusingSettingService.howManyNumbers() === 2"
-                                        class="settingButton"
-                                        (click)="setHowManyNumbers(2)">2個數字</button>
-                                <button [class.selected]="plusingSettingService.howManyNumbers() === 3"
-                                        class="settingButton"
-                                        (click)="setHowManyNumbers(3)">3個數字</button>
-                                <button [class.selected]="plusingSettingService.howManyNumbers() === 4"
-                                        class="settingButton"
-                                        (click)="setHowManyNumbers(4)">4個數字</button>
-                                <button [class.selected]="plusingSettingService.howManyNumbers() === 5"
-                                        class="settingButton"
-                                        (click)="setHowManyNumbers(5)">5個數字</button>
-                        </div>
-                        <!-- 個位數/十位數/百位數/千位數/萬位數 -->
-                        <div class="action-row-gap">
-                                <p>最大位數</p>
-                                <button [class.selected]="plusingSettingService.digitNow() === 1" class="settingButton"
-                                        (click)="setDigitNow(1)">個位數</button>
-                                <button [class.selected]="plusingSettingService.digitNow() === 2" class="settingButton"
-                                        (click)="setDigitNow(2)">十位數</button>
-                                <button [class.selected]="plusingSettingService.digitNow() === 3" class="settingButton"
-                                        (click)="setDigitNow(3)">百位數</button>
-                                <button [class.selected]="plusingSettingService.digitNow() === 4" class="settingButton"
-                                        (click)="setDigitNow(4)">千位數</button>
-                                <button [class.selected]="plusingSettingService.digitNow() === 5" class="settingButton"
-                                        (click)="setDigitNow(5)">萬位數</button>
-                        </div>
-                        <div class="action-row-gap">
-                                <p>小數點</p>
-                                <button [class.selected]="plusingSettingService.decimalPoint() === 0"
-                                        class="settingButton"
-                                        (click)="setDecimalPoint(0)">整數</button>
-                                <button [class.selected]="plusingSettingService.decimalPoint() === 1"
-                                        class="settingButton"
-                                        (click)="setDecimalPoint(1)">十分位</button>
-                                <button [class.selected]="plusingSettingService.decimalPoint() === 2"
-                                        class="settingButton"
-                                        (click)="setDecimalPoint(2)">百分位</button>
-                        </div>
-                        <div class="action-row-gap">
-                                <p>允許負數</p>
-                                <button [class.selected]="plusingSettingService.allowNegative() === true"
-                                        class="settingButton"
-                                        (click)="setAllowNegative(true)">是</button>
-                                <button [class.selected]="plusingSettingService.allowNegative() === false"
-                                        class="settingButton"
-                                        (click)="setAllowNegative(false)">否</button>
-                        </div>
-
+                <div class="action-row-gap">
+                        <p>加減模式</p>
+                        <button [class.selected]="plusingSettingService.mode() === 'add'" class="settingButton"
+                                (click)="setMode('add')">加法</button>
+                        <button [class.selected]="plusingSettingService.mode() === 'sub'" class="settingButton"
+                                (click)="setMode('sub')">減法</button>
                 </div>
-
+                <div class="action-row-gap">
+                        <p>有幾個數字</p>
+                        <button [class.selected]="plusingSettingService.howManyNumbers() === 2"
+                                class="settingButton" (click)="setHowManyNumbers(2)">2個數字</button>
+                        <button [class.selected]="plusingSettingService.howManyNumbers() === 3"
+                                class="settingButton" (click)="setHowManyNumbers(3)">3個數字</button>
+                        <button [class.selected]="plusingSettingService.howManyNumbers() === 4"
+                                class="settingButton" (click)="setHowManyNumbers(4)">4個數字</button>
+                        <button [class.selected]="plusingSettingService.howManyNumbers() === 5"
+                                class="settingButton" (click)="setHowManyNumbers(5)">5個數字</button>
+                </div>
+                <!-- 個位數/十位數/百位數/千位數/萬位數 -->
+                <div class="action-row-gap">
+                        <p>最大位數</p>
+                        <button [class.selected]="plusingSettingService.digitNow() === 1" class="settingButton"
+                                (click)="setDigitNow(1)">個位數</button>
+                        <button [class.selected]="plusingSettingService.digitNow() === 2" class="settingButton"
+                                (click)="setDigitNow(2)">十位數</button>
+                        <button [class.selected]="plusingSettingService.digitNow() === 3" class="settingButton"
+                                (click)="setDigitNow(3)">百位數</button>
+                        <button [class.selected]="plusingSettingService.digitNow() === 4" class="settingButton"
+                                (click)="setDigitNow(4)">千位數</button>
+                        <button [class.selected]="plusingSettingService.digitNow() === 5" class="settingButton"
+                                (click)="setDigitNow(5)">萬位數</button>
+                </div>
+                <div class="action-row-gap">
+                        <p>小數點</p>
+                        <button [class.selected]="plusingSettingService.decimalPoint() === 0"
+                                class="settingButton" (click)="setDecimalPoint(0)">整數</button>
+                        <button [class.selected]="plusingSettingService.decimalPoint() === 1"
+                                class="settingButton" (click)="setDecimalPoint(1)">十分位</button>
+                        <button [class.selected]="plusingSettingService.decimalPoint() === 2"
+                                class="settingButton" (click)="setDecimalPoint(2)">百分位</button>
+                </div>
+                <div class="action-row-gap">
+                        <p>允許負數</p>
+                        <button [class.selected]="plusingSettingService.allowNegative() === true"
+                                class="settingButton" (click)="setAllowNegative(true)">是</button>
+                        <button [class.selected]="plusingSettingService.allowNegative() === false"
+                                class="settingButton" (click)="setAllowNegative(false)">否</button>
+                </div>
         </div>
         }@else if(page() === 'game'){
         <div class="gamePageOfgame">
@@ -276,9 +263,9 @@
                         }
                         <tr class="answerArea">
                                 @if(this.putNegative()){
-                                        <th class="transparent"(click)="toggleNegative()">-</th>
+                                <th class="transparent" (click)="toggleNegative()">-</th>
                                 }@else{
-                                        <th class="transparent"(click)="toggleNegative()"></th>
+                                <th class="transparent" (click)="toggleNegative()"></th>
                                 }
                                 @if(plusingSettingService.digitNow()>=5){
                                 <th><input class="answer-0" type="text" inputmode="numeric" [value]="inputAnswer()[0]"
@@ -324,7 +311,28 @@
         </div>
         }@else if(page() === 'animation'){
         <div class="animationPageOfgame">
-                <p>動畫頁面</p>
+                <div class="action-row-gap">
+                        <span>數字A</span>
+                        <input style="width: 20px;" class="numInput" type="text" inputmode="numeric" [value]="num54()"
+                                (change)="putNum54($event)" (focus)="$any($event.target).select()">
+                        <span>數字B</span>
+                        <input style="width: 20px;" class="numInput" type="text" inputmode="numeric" [value]="num39()"
+                                (change)="putNum39($event)" (focus)="$any($event.target).select()">
+                </div>
+                <div class="action-row-gap">
+                        <button [class.selected]="playMode() === 'add'" class="settingButton"
+                                (click)="playMode.set('add')">加法</button>
+                        <button [class.selected]="playMode() === 'sub'" class="settingButton"
+                                (click)="playMode.set('sub')">減法</button>
+                </div>
+                <div class="action-row-gap">
+                        <button class="settingButton" (click)="playAnimation()">▶ 播放</button>
+                        <button class="settingButton" (click)="togglePause()">
+                                {{ animPaused() ? '▶ 繼續' : '⏸ 暫停' }}
+                        </button>
+                        <button class="settingButton" (click)="resetAnimation()">↺ 重置</button>
+                </div>
+                <canvas id="animationCanvas"></canvas>
         </div>
         }
 </div>

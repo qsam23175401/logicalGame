@@ -2,6 +2,7 @@ import { Component, signal, computed, effect, inject } from '@angular/core';
 import { PlusingSettingService } from './plusing-setting-service';
 import { ShowDigitPipe } from './pipes';
 import { FormsModule } from '@angular/forms';
+import { AnimationEngine } from './animation/animation-engine';
 
 @Component({
   selector: 'app-plusing-game',
@@ -131,5 +132,73 @@ export class PlusingGame {
     if(this.allowNegative()){
       this.putNegative.set(!this.putNegative());
     }
+  }
+
+  num54 = signal(54);
+  num39 = signal(39);
+  isPlaying = false;
+  playMode = signal<'add' | 'sub'>('add');
+  animPaused = signal(false);
+  private animEngine = new AnimationEngine();
+
+  putNum54(event: Event){
+    const target = event.target as HTMLInputElement;
+    let valueStr = target.value;//只能是整數，小於100
+    let value = parseInt(valueStr);
+    if(value > 0 && value < 100){
+      this.num54.set(value);
+    }else{
+      target.value = '54';
+      this.num54.set(54);
+    }
+  }
+
+  putNum39(event: Event){
+    const target = event.target as HTMLInputElement;
+    let valueStr = target.value;//只能是整數，小於100，且不大於num54
+    let value = parseInt(valueStr);
+    if(value > 0 && value < 100 && value <= this.num54()){
+      this.num39.set(value);
+    }else{
+      target.value = '39';
+      this.num39.set(39);
+    }
+  }
+
+  /** 播放動畫 */
+  playAnimation() {
+    this.animPaused.set(false);
+    const canvas = document.getElementById('animationCanvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    this.animEngine.init(canvas);
+
+    let a = this.num54();
+    let b = this.num39();
+
+    if (this.playMode() === 'add') {
+      // 加法模式：A + B 不能超過 99
+      if (a + b > 99) {
+        b = 99 - a;
+        if (b <= 0) { a = 99; b = 0; }
+        this.num54.set(a);
+        this.num39.set(b);
+      }
+      this.animEngine.playAddition(a, b);
+    } else {
+      // 減法模式：B 不能大於 A（已在 putNum39 中限制）
+      this.animEngine.playSubtraction(a, b);
+    }
+  }
+
+  /** 暫停 / 繼續動畫 */
+  togglePause() {
+    this.animEngine.togglePause();
+    this.animPaused.set(this.animEngine.paused);
+  }
+
+  /** 重置動畫 */
+  resetAnimation() {
+    this.animPaused.set(false);
+    this.animEngine.reset();
   }
 }
