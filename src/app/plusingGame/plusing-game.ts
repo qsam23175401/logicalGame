@@ -58,6 +58,8 @@ export class PlusingGame {
       if (this.needClearInput()) {
         this.claerInput();
         this.needClearInput.set(false);
+        //展示文字 : 恭喜答對了！ 再來一題好嗎？
+        alert('恭喜答對了！!\n再來一題好嗎？');
       }
     });
   }
